@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function App() {
   const [currencyDetails, setCurrencyDetails] = useState({
@@ -40,16 +40,22 @@ function App() {
     },
     date: '2020-07-01',
   })
+
+  const baseCurrency = `The currency is converted to: ${currencyDetails.base}`
   return (
     <div className="container">
       <div class="jumbotron">
         <h1 class="display-4">Currency Converter</h1>
-        <p class="lead">2020-07-01</p>
+        <h4>{baseCurrency}</h4>
+        <p class="lead">{currencyDetails.date}</p>
       </div>
       <div>
         <h4>Currency (USD):</h4>
         <ul class="list-group">
-          <li class="list-group-item">"GBP": 0.8074107143</li>
+          <li class="list-group-item">
+            <h4>GBP</h4>
+            {currencyDetails.rates.GBP}
+          </li>
           <li class="list-group-item">"HKD": 7.7507142857</li>
           <li class="list-group-item">"IDR": 14265.0</li>
           <li class="list-group-item">"ILS": 3.4557142857</li>
