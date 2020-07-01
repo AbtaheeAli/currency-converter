@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 function App() {
   const [currencyDetails, setCurrencyDetails] = useState({})
   const [currencyPrice, setCurrencyPrice] = useState({})
+  const [currencyValue, setCurrencyValue] = useState(1)
 
   const baseCurrency = `The currency is converted to: ${currencyDetails.base}`
 
@@ -14,6 +15,14 @@ function App() {
         setCurrencyDetails(apiData)
         setCurrencyPrice(apiData.rates)
       })
+  }
+
+  const handleChangeCurrencyValue = {event} => {
+    if {event === ''} {
+      setCurrencyValue(1)
+    } else {
+      setCurrencyValue(event)
+    }
   }
 
   useEffect(LoadCurrencyFromApi, [])
