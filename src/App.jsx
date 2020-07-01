@@ -17,8 +17,8 @@ function App() {
       })
   }
 
-  const handleChangeCurrencyValue = {event} => {
-    if {event === ''} {
+  const handleChangeCurrencyValue = (event) => {
+    if (event === '') {
       setCurrencyValue(1)
     } else {
       setCurrencyValue(event)
@@ -29,45 +29,59 @@ function App() {
 
   return (
     <div className="container">
-      <div class="jumbotron">
-        <h1 class="display-4">Currency Converter</h1>
-        <h4>{baseCurrency}</h4>
-        <p class="lead">{currencyDetails.date}</p>
-      </div>
+      <header>
+        <div class="jumbotron">
+          <h1 class="display-4">Currency Converter</h1>
+          <h4>{baseCurrency}</h4>
+          <p class="lead">{currencyDetails.date}</p>
+        </div>
+      </header>
       <div>
         <h4>Currency (USD):</h4>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              USD Amount {currencyValue} - {currencyDetails.base}
+            </span>
+          </div>
+        </div>
+        <textarea
+          className="text-input"
+          aria-label="text"
+          onChange={(event) => handleChangeCurrencyValue(event.target.value)}
+        />
         <ul class="list-group">
           <li class="list-group-item">
             <h4>GBP</h4>
-            {currencyPrice.GBP}
+            {currencyPrice.GBP * currencyValue}
           </li>
           <li class="list-group-item">
             <h4>HKD</h4>
-            {currencyPrice.HKD}
+            {currencyPrice.HKD * currencyValue}
           </li>
           <li class="list-group-item">
             <h4>IDR</h4>
-            {currencyPrice.IDR}
+            {currencyPrice.IDR * currencyValue}
           </li>
           <li class="list-group-item">
             <h4>ILS</h4>
-            {currencyPrice.ILS}
+            {currencyPrice.ILS * currencyValue}
           </li>
           <li class="list-group-item">
             <h4>DKK</h4>
-            {currencyPrice.DKK}
+            {currencyPrice.DKK * currencyValue}
           </li>
           <li class="list-group-item">
             <h4>INR</h4>
-            {currencyPrice.INR}
+            {currencyPrice.INR * currencyValue}
           </li>
           <li class="list-group-item">
             <h4>CHF</h4>
-            {currencyPrice.CHF}
+            {currencyPrice.CHF * currencyValue}
           </li>
           <li class="list-group-item">
             <h4>MXN</h4>
-            {currencyPrice.MXN}
+            {currencyPrice.MXN * currencyValue}
           </li>
           <li class="list-group-item">
             <h4>CZK</h4>
